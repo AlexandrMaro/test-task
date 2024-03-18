@@ -78,7 +78,7 @@ export const RegisterSection = forwardRef((props, ref) => {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
+        //console.log(data);
         setTokenState(data.token);
         return data.token;
       })
@@ -149,7 +149,7 @@ export const RegisterSection = forwardRef((props, ref) => {
     fetchingPositions();
     getToken();
   }, []);
-  console.log(unSuccessError);
+  //console.log(unSuccessError);
 
   return (
     <Container
