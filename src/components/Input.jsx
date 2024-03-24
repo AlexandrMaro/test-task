@@ -6,9 +6,10 @@ export const Input = forwardRef((props, ref) => {
     <TextField
       variant="outlined"
       margin="normal"
+      fullWidth
       inputRef={ref}
       {...props}
-      sx={{ width: 380, height: 54 }}
+      sx={{ width: { sx: 328, sm: 380, md: 380, lg: 380 }, height: 54 }}
     />
   );
 });

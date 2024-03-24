@@ -1,10 +1,11 @@
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import UserCard from "../Cards/UserCard";
 import Box from "@mui/material/Box";
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import { useEffect, useState, forwardRef } from "react";
 import CustomButton from "../CustomButton/CustomButton";
 import CircularProgress from "@mui/material/CircularProgress";
+import s from "./Users.module.scss";
 
 const Users = forwardRef((props, ref) => {
   const [users, setUsers] = useState([]);
@@ -12,7 +13,6 @@ const Users = forwardRef((props, ref) => {
   const [isLoading, setIsLoading] = useState(false);
   const [nextLink, setNextLink] = useState("");
   const [disabled, setDisabled] = useState(false);
-
   let totalPages;
 
   const fetchingUsers = async () => {
@@ -20,6 +20,7 @@ const Users = forwardRef((props, ref) => {
     const getUsers = await fetch(process.env.REACT_APP_FETCHING_USERS);
 
     const data = await getUsers.json();
+
     data.users.sort(function (date1, date2) {
       return date2.registration_timestamp - date1.registration_timestamp;
     });
@@ -31,13 +32,16 @@ const Users = forwardRef((props, ref) => {
     setLoading(false);
   };
   let currentPage = 0;
+
   const moreUsers = async () => {
     setIsLoading(true);
     const getUsers = await fetch(nextLink);
     const data = await getUsers.json();
 
+    if (!data.links.next_url) {
+      setDisabled(true);
+    }
     currentPage = data.page;
-    //console.log(currentPage);
     setUsers([...users, ...data.users]);
     setNextLink(data.links.next_url);
     setIsLoading(false);
@@ -49,27 +53,46 @@ const Users = forwardRef((props, ref) => {
 
   return (
     <>
-      <Container maxWidth="lg">
-        <Box display="flex" justifyContent="center" paddingTop="140px">
-          <h1 ref={ref}>Working with GET request</h1>
-        </Box>
+      <Container className={s.container}>
+        <Typography
+          ref={ref}
+          component="h1"
+          variant="h3"
+          lineHeight="40px"
+          fontSize="40px"
+          align="center"
+          display="flex"
+          justifyContent="center"
+          paddingTop="140px"
+        >
+          Working with GET request
+        </Typography>
         <Grid
           container
-          spacing="20px"
           paddingTop="50px"
           paddingBottom="50px"
           display="flex"
           justifyContent="center"
-          alignItems="center"
+          justifyItems="center"
+          alignContent="center"
+          className={s.gridUsers}
         >
           {loading && <CircularProgress />}
           {users.map((user) => (
             <Grid
               key={user.id}
-              item
               display="flex"
               justifyContent="center"
               alignItems="center"
+              sx={{
+                width: {
+                  xl: "calc(100%/3 - 43px)",
+                  lg: "calc(100%/3 - 43px)",
+                  md: "calc(100%/3 - 20px)",
+                  sm: "calc(100%/2 - 8px)",
+                  xs: "100%",
+                },
+              }}
             >
               <UserCard
                 key={user.id}
@@ -82,10 +105,10 @@ const Users = forwardRef((props, ref) => {
             </Grid>
           ))}
         </Grid>
-        <Box display="flex" justifyContent="center">
-          <CustomButton onClick={moreUsers} isLoading={isLoading}>
+        <Box display={disabled ? "none" : "flex"} justifyContent="center">
+          <CustomButton onClick={moreUsers}>
             {!isLoading ? (
-              "Show More"
+              "Show more"
             ) : (
               <CircularProgress
                 size={25}

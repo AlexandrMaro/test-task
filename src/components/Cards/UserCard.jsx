@@ -39,11 +39,10 @@ export default function UserCard({
   return (
     <Card
       sx={{
-        width: "370px",
+        width: "100%",
         height: "254px",
         borderRadius: "16px",
         boxShadow: 0,
-        minWidth: "370px",
       }}
     >
       <CardMedia
@@ -104,7 +103,9 @@ export default function UserCard({
           }}
         >
           <Typography noWrap variant="body16">
-            <CustomTooltip title={email}>{email}</CustomTooltip>
+            <CustomTooltip title={email}>
+              <span>{email}</span>
+            </CustomTooltip>
           </Typography>
         </Box>
         <Typography

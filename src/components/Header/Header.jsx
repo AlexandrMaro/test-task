@@ -6,14 +6,14 @@ import CustomButton from "../CustomButton/CustomButton";
 
 function scrollTo(ref) {
   if (!ref.current) return;
-  ref.current.scrollIntoView({ behavior: "smooth" });
+  ref.current.scrollIntoView({ behavior: "smooth", top: -100 });
 }
 
 export default function Header({ usersSection, regSection }) {
   return (
-    <div className={style.container}>
+    <Box className={style.container}>
       <header className={style.header}>
-        <Box sx={{ flexGrow: 1 }}>
+        <Box>
           <img
             src={logo}
             alt="Logo"
@@ -23,15 +23,18 @@ export default function Header({ usersSection, regSection }) {
             }}
           />
         </Box>
-        <div className="action">
-          <CustomButton onClick={() => scrollTo(usersSection)}>
+        <Box>
+          <CustomButton
+            onClick={() => scrollTo(usersSection)}
+            styles={style.headerButton}
+          >
             Users
           </CustomButton>
           <CustomButton onClick={() => scrollTo(regSection)}>
-            Sign Up
+            Sign up
           </CustomButton>
-        </div>
+        </Box>
       </header>
-    </div>
+    </Box>
   );
 }

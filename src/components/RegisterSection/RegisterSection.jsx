@@ -66,6 +66,7 @@ export const RegisterSection = forwardRef((props, ref) => {
     formState: { errors, isDirty, isValid },
     handleSubmit,
     reset,
+    resetField,
     control,
   } = useForm({
     mode: "onBlur",
@@ -78,7 +79,6 @@ export const RegisterSection = forwardRef((props, ref) => {
         return response.json();
       })
       .then(function (data) {
-        //console.log(data);
         setTokenState(data.token);
         return data.token;
       })
@@ -122,6 +122,8 @@ export const RegisterSection = forwardRef((props, ref) => {
           setOpen(true);
           setUnSuccessError("");
           reset();
+          reset({ avatar: [] });
+          resetField("position_id");
           setFileName("Upload your file");
         } else {
           // proccess server errors
@@ -162,21 +164,24 @@ export const RegisterSection = forwardRef((props, ref) => {
       }}
     >
       <Typography
+        ref={ref}
         component="h1"
         variant="h3"
+        fontFamily="Nunito"
+        lineHeight="40px"
+        fontSize="40px"
+        align="center"
         display="flex"
         justifyContent="center"
         paddingTop="140px"
-        fontFamily="Nunito"
       >
-        <div ref={ref}></div>
         Working with POST request
       </Typography>
 
       <Form
         display="flex"
-        justifyContent="center"
-        alignItems="center"
+        // justifyContent="center"
+        // alignItems="center"
         onSubmit={handleSubmit(onSubmit)}
       >
         <Stack
@@ -221,9 +226,17 @@ export const RegisterSection = forwardRef((props, ref) => {
             <SuccessImage />
           </Dialog>
 
-          <Box sx={{ justifyContent: "flex-start" }}>
+          <Box sx={{ justifyContent: "flex-start", display: {} }}>
             <FormControl>
-              <Typography variant="body16">Select your position</Typography>
+              <Typography
+                variant="body1"
+                fontFamily="Nunito"
+                fontWeight="400"
+                fontSize="16px"
+                lineHeight="26px"
+              >
+                Select your position
+              </Typography>
               <RadioGroup>
                 {positions.map((position) => (
                   <FormControlLabel
@@ -232,7 +245,15 @@ export const RegisterSection = forwardRef((props, ref) => {
                     value={position.name}
                     control={<Radio value={position.id} />}
                     label={
-                      <Typography variant="body16">{position.name}</Typography>
+                      <Typography
+                        variant="body1"
+                        fontFamily="Nunito"
+                        fontWeight="400"
+                        fontSize="16px"
+                        lineHeight="26px"
+                      >
+                        {position.name}
+                      </Typography>
                     }
                     onChange={() => {
                       setUserPosition(Number(position.id));
@@ -240,7 +261,6 @@ export const RegisterSection = forwardRef((props, ref) => {
                   />
                 ))}
               </RadioGroup>
-              {/* {success && <SuccessImage></SuccessImage>} */}
             </FormControl>
           </Box>
           <Box>
@@ -264,9 +284,9 @@ export const RegisterSection = forwardRef((props, ref) => {
                 name="avatar"
                 control={control}
                 defaultValue=""
+                rules={{ required: true }}
                 render={({ field }) => (
                   <input
-                    //{...register("avatar")}
                     accept="image/jpeg"
                     type="file"
                     onChange={(e) => {
@@ -277,23 +297,6 @@ export const RegisterSection = forwardRef((props, ref) => {
                   />
                 )}
               />
-              {/* <input
-                {...register("avatar")}
-                id="avatar"
-                name="avatar"
-                type="file"
-                required
-                accept="image/jpeg"
-                onChange={(event) => {
-                  setFileName(event.target.files[0].name);
-                  const fileList = event.target.files;
-                  if (fileList.length > 0) {
-                    const file = fileList.item(0);
-                    //console.log(file);
-                  }
-                }}
-                style={{ display: "none" }}
-              /> */}
             </Button>
             <TextField
               variant="standard"

@@ -15,7 +15,7 @@ export default function InitialSection({ regSection }) {
           <div className="initial-section_inner">
             <div className="initial-text">
               <h1>Test assignment for front-end developer</h1>
-              <p>
+              <p className="initial-subtitle">
                 What defines a good front-end developer is one that has skilled
                 knowledge of HTML, CSS, JS with a vast understanding of User
                 design thinking as they'll be building web interfaces with
@@ -23,7 +23,7 @@ export default function InitialSection({ regSection }) {
                 the world of Front-End Development keeps evolving.
               </p>
               <CustomButton onClick={() => scrollTo(regSection)}>
-                Sign Up
+                Sign up
               </CustomButton>
             </div>
           </div>

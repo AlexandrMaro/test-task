@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
 .button {
-  width: 100px;
+  // width: 100px;
   height: 34px;
-  margin-right: 10px;
+  // margin-right: 10px;
   cursor: pointer;
-
+  padding: 0 18px;
+  min-width: 100px;
   flex-shrink: 0;
   background: var(--Primary, #f4e041);
   border-radius: 80px;
@@ -23,14 +24,10 @@
   &:hover {
     background: #ffe302;
   }
-  // &:last-child {
-  //   margin-right: 0;
-  // }
 }
 
 button:disabled,
 button[disabled] {
-  //border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
 }

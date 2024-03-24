@@ -1,0 +1,20 @@
+.container {
+  max-width: 1170px;
+  width: 100%;
+}
+
+.gridUsers {
+  gap: 29px;
+}
+
+@media (max-width: 768px) {
+  .gridUsers {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .gridUsers {
+    gap: 20px;
+  }
+}

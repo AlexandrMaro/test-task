@@ -2,6 +2,7 @@
   width: 100%;
   background: #fff;
   height: 60px;
+  //display: block;
 }
 
 .header {
@@ -12,4 +13,26 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 60px;
+}
+
+.headerButton {
+  margin-right: 10px;
+}
+
+@media screen and (min-width: 0) {
+  .header {
+    padding: 0 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 0 32px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    padding: 0 60px;
+  }
 }

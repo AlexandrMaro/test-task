@@ -4,10 +4,17 @@
   margin: 0 auto;
 }
 
+.initial-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: center;
+}
+
 .initial-section_inner {
   position: relative;
   background: url(../../assets/bg.jpeg) center center / cover no-repeat;
-  background-size: 200% 200%;
+  //background-size: 200% 200%;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -35,7 +42,7 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  padding: 50px 0;
+  // padding: 50px 0;
   display: flex;
   z-index: 9999;
 }

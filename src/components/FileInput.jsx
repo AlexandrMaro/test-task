@@ -4,7 +4,6 @@ import React, { useState } from "react";
 
 export const FileInput = forwardRef((props, ref) => {
   const [fileName, setFileName] = useState("");
-  //const fileUpload = useRef();
 
   const handleFileChange = (event) => {
     ref = event.target.files[0];
@@ -30,7 +29,9 @@ export const FileInput = forwardRef((props, ref) => {
           "&:hover": { background: "none" },
         }}
       >
-        <Typography variant="body16">Upload</Typography>
+        <Typography variant="body16" fontSize="16px">
+          Upload
+        </Typography>
         <input
           {...props}
           type="file"
@@ -48,11 +49,12 @@ export const FileInput = forwardRef((props, ref) => {
         inputProps={{ readOnly: true }}
         InputProps={{ disableUnderline: true }}
         sx={{
-          width: 297,
+          fontSize: "16px",
+          width: { sm: "328px", md: "380px", lg: "380px", xl: "380px" },
           height: 52,
           borderRadius: "0px 4px 4px 0px",
           border: 1,
-          color: "#D0CFCF",
+          color: "#7E7E7E",
           input: {
             height: "45px",
             display: "flex",

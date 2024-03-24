@@ -6,6 +6,7 @@ export default function CustomButton({
   onClick,
   disabled,
   styles,
+  display,
   ...props
 }) {
   return (
