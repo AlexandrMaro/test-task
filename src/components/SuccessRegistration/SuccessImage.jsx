@@ -16,7 +16,6 @@ export default function SuccessImage() {
   return (
     <>
       <Container
-        maxWidth="lg"
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -25,7 +24,12 @@ export default function SuccessImage() {
           backdropFilter: "blur(5px)",
         }}
       >
-        <Typography variant="h1" fontSize={40} fontFamily={"Nunito"}>
+        <Typography
+          variant="h1"
+          fontSize={40}
+          fontFamily={"Nunito"}
+          sx={{ textAlign: "center" }}
+        >
           User successfully registered
         </Typography>
         <Box

@@ -102,7 +102,7 @@ export const RegisterSection = forwardRef((props, ref) => {
     formData.append("email", data.email);
     formData.append("phone", data.phone.replace(/\s/g, ""));
     formData.append("photo", data.avatar);
-    console.log(JSON.stringify(data.phone).replace(/\s/g, ""));
+    //console.log(JSON.stringify(data.phone).replace(/\s/g, ""));
 
     fetch(process.env.REACT_APP_USERS_URL, {
       method: "POST",
@@ -120,6 +120,7 @@ export const RegisterSection = forwardRef((props, ref) => {
           console.log(data);
           setSuccess(true);
           setOpen(true);
+          props.setAddNewUser(true);
           setUnSuccessError("");
           reset();
           reset({ avatar: [] });
@@ -135,7 +136,7 @@ export const RegisterSection = forwardRef((props, ref) => {
       .catch(function (error) {
         // proccess network errors
         setUnSuccessError(error.message);
-        console.log("Error response: ", error.message);
+        //console.log("Error response: ", error.message);
       });
   };
 
@@ -151,7 +152,6 @@ export const RegisterSection = forwardRef((props, ref) => {
     fetchingPositions();
     getToken();
   }, []);
-  //console.log(unSuccessError);
 
   return (
     <Container
@@ -222,7 +222,13 @@ export const RegisterSection = forwardRef((props, ref) => {
             }}
           />
 
-          <Dialog onClose={handleClose} open={open}>
+          <Dialog
+            onClose={handleClose}
+            open={open}
+            sx={{
+              "& .MuiDialog-paper": { maxWidth: "800px", padding: "48px" },
+            }}
+          >
             <SuccessImage />
           </Dialog>
 
@@ -275,7 +281,7 @@ export const RegisterSection = forwardRef((props, ref) => {
                 color: "#000000DE",
                 marginright: "1rem",
                 textTransform: "none",
-                zIndex: 9999,
+                zIndex: 9,
                 "&:hover": { background: "none" },
               }}
             >

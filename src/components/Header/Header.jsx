@@ -6,7 +6,7 @@ import CustomButton from "../CustomButton/CustomButton";
 
 function scrollTo(ref) {
   if (!ref.current) return;
-  ref.current.scrollIntoView({ behavior: "smooth", top: -100 });
+  ref.current.scrollIntoView({ behavior: "smooth" });
 }
 
 export default function Header({ usersSection, regSection }) {

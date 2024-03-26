@@ -30,7 +30,9 @@ const Users = forwardRef((props, ref) => {
     setUsers(data.users);
     setNextLink(data.links.next_url);
     setLoading(false);
+    props.setAddNewUser(false);
   };
+
   let currentPage = 0;
 
   const moreUsers = async () => {
@@ -50,6 +52,12 @@ const Users = forwardRef((props, ref) => {
   useEffect(() => {
     fetchingUsers();
   }, []);
+
+  useEffect(() => {
+    if (props.addNewUser) {
+      fetchingUsers();
+    }
+  }, [props.addNewUser]);
 
   return (
     <>
@@ -86,7 +94,7 @@ const Users = forwardRef((props, ref) => {
               alignItems="center"
               sx={{
                 width: {
-                  xl: "calc(100%/3 - 43px)",
+                  xl: "calc(100%/3 - 20px)",
                   lg: "calc(100%/3 - 43px)",
                   md: "calc(100%/3 - 20px)",
                   sm: "calc(100%/2 - 8px)",
