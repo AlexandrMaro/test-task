@@ -1,6 +1,6 @@
 import { Container, Typography, Box, Paper } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import successImage from "../../assets/success-image.svg";
+import successImage from "../../assets/success-image.webp";
 
 export default function SuccessImage() {
   const [showImage, setShowImage] = useState(false);
