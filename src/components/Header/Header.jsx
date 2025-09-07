@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/logo.webp";
 import style from "./Header.module.scss";
 import CustomButton from "../CustomButton/CustomButton";
 
