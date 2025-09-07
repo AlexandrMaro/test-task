@@ -52,7 +52,7 @@ export default function UserCard({
           marginTop: "20px",
         }}
       >
-        {!isLoading ? (
+        {isLoading ? (
           <Avatar
             sx={{
               width: "70px",
