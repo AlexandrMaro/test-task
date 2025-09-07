@@ -52,19 +52,15 @@ export default function UserCard({
           marginTop: "20px",
         }}
       >
-        {!isLoading ? (
-          <Avatar
-            sx={{
-              width: "70px",
-              height: "70px",
-            }}
-            alt={name}
-            imgProps={{ onerror: () => setImgSrc(noPhoto) }}
-            src={photo}
-          />
-        ) : (
-          <Skeleton variant="circular" width={70} height={70} />
-        )}
+        <Avatar
+          sx={{
+            width: "70px",
+            height: "70px",
+          }}
+          alt={name}
+          imgProps={{ onerror: () => setImgSrc(noPhoto) }}
+          src={photo}
+        />
       </CardMedia>
       <CardContent
         sx={{
