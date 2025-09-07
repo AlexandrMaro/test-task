@@ -109,7 +109,7 @@ const Users = forwardRef((props, ref) => {
                 email={user.email}
                 phone={user.phone}
                 position={user.position}
-                photo={user?.photo || noPhoto}
+                photo={user?.photo}
               />
             </Grid>
           ))}
