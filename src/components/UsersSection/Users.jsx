@@ -6,6 +6,7 @@ import { useEffect, useState, forwardRef } from "react";
 import CustomButton from "../CustomButton/CustomButton";
 import CircularProgress from "@mui/material/CircularProgress";
 import s from "./Users.module.scss";
+import noPhoto from "../../assets/photo-cover.svg";
 
 const Users = forwardRef((props, ref) => {
   const [users, setUsers] = useState([]);
@@ -108,7 +109,7 @@ const Users = forwardRef((props, ref) => {
                 email={user.email}
                 phone={user.phone}
                 position={user.position}
-                photo={user.photo}
+                photo={user.photo || noPhoto}
               />
             </Grid>
           ))}

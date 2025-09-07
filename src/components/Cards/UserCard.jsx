@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import noPhoto from "../../assets/photo-cover.svg";
+//import noPhoto from "../../assets/photo-cover.svg";
 import {
   Box,
   CardMedia,
@@ -59,7 +59,7 @@ export default function UserCard({
               height: "70px",
             }}
             alt={name}
-            src={photo || noPhoto}
+            src={photo}
           />
         ) : (
           <Skeleton variant="circular" width={70} height={70} />
