@@ -58,7 +58,7 @@ export default function UserCard({
               width: "70px",
               height: "70px",
             }}
-            //alt={name}
+            alt={name}
             src={photo || noPhoto}
           />
         ) : (
