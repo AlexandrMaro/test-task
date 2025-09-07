@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Avatar from "@mui/material/Avatar";
@@ -36,6 +36,7 @@ export default function UserCard({
   photo,
   isLoading,
 }) {
+  const [imgSrc, setImgSrc] = useState(photo);
   return (
     <Card
       sx={{
@@ -58,8 +59,10 @@ export default function UserCard({
             height: "70px",
           }}
           alt={name}
-          imgProps={{ onerror: () => setImgSrc(noPhoto) }}
-          src={photo}
+          imgProps={{
+            onError: () => setImgSrc(noPhoto),
+          }}
+          src={imgSrc}
         />
       </CardMedia>
       <CardContent
