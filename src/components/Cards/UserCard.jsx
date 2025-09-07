@@ -59,7 +59,7 @@ export default function UserCard({
               height: "70px",
             }}
             alt={name}
-            //children={noPhoto}
+            imgProps={{ onerror: () => setImgSrc(noPhoto) }}
             src={photo}
           />
         ) : (
