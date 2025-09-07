@@ -52,6 +52,7 @@ export default function UserCard({
           display: "flex",
           marginTop: "20px",
         }}
+        loading="lazy"
       >
         <Avatar
           sx={{
