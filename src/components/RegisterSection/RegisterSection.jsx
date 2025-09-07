@@ -10,9 +10,7 @@ import {
   RadioGroup,
   Radio,
   Dialog,
-  FormHelperText,
 } from "@mui/material";
-//import FormHelperText from '@mui/material/FormHelperText';
 import { Input } from "../Input";
 import { Form } from "../RegisterForm/RegisterForm";
 import CustomButton from "../CustomButton/CustomButton";
@@ -223,7 +221,6 @@ export const RegisterSection = forwardRef((props, ref) => {
               event.target.value = normalizePhoneNumber(event.target.value);
             }}
           />
-          <FormHelperText>With label + helper text</FormHelperText>
 
           <Dialog
             onClose={handleClose}
