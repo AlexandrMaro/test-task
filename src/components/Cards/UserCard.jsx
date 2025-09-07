@@ -58,8 +58,8 @@ export default function UserCard({
               width: "70px",
               height: "70px",
             }}
-            alt={name}
-            src={photo || noPhoto}
+            alt={noPhoto}
+            src={photo}
           />
         ) : (
           <Skeleton variant="circular" width={70} height={70} />
