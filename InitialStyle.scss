@@ -13,7 +13,9 @@
 
 .initial-section_inner::after {
   position: relative;
-  background: url(../../assets/bg1920.webp) center center / cover no-repeat;
+  //background: url(../../assets/bg1920.webp) center center / cover no-repeat;
+  background: url(../../public/bg_image_1170x650.webp) center center / cover
+    no-repeat;
   //background-size: 200% 200%;
   align-items: center;
   justify-content: center;
