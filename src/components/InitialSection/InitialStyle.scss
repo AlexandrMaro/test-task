@@ -22,28 +22,28 @@
   display: flex;
 }
 
-@media only screen and (width >= 360px) {
+@media screen and (width >= 360px) {
   initial-section_inner {
     background-image: url(../../../public/bg_image_360x500.webp) center center /
       cover no-repeat;
   }
 }
 
-@media only screen and (width >= 768px) {
+@media screen and (width >= 768px) {
   initial-section_inner {
     background-image: url(../../../public/bg_image_768x500.webp) center center /
       cover no-repeat;
   }
 }
 
-@media only screen and (width >= 1024px) {
+@media screen and (width >= 1024px) {
   initial-section_inner {
     background-image: url(../../../public/bg_image_1024x650.webp) center center /
       cover no-repeat;
   }
 }
 
-@media only screen and (width >= 1170px) {
+@media screen and (width >= 1170px) {
   initial-section_inner {
     background-image: url(../../../public/bg_image_1170x650.webp) center center /
       cover no-repeat;
